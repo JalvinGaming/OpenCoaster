@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccxsnoe0hgb2s"]
+
+[ext_resource type="ArrayMesh" uid="uid://dhk0hb6nb8qmf" path="res://Models/Tracks/Wood/track.obj" id="1_h01b4"]
+
+[node name="Woodtrack" type="MeshInstance3D"]
+mesh = ExtResource("1_h01b4")

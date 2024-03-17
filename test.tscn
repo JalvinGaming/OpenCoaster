@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bk36ypmhewuy5"]
+
+[ext_resource type="Script" path="res://freeze.gd" id="1_lr888"]
+
+[sub_resource type="Curve3D" id="Curve3D_0mck1"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 3, 0, 0, 0, -1, 0, -1, 1, 0, 1, 3, 0.022, 3, -0.2, 0, -1, 0.2, 0, 1, 3.5, 0, 5, -1, 0, 0, 0, 0, 0, 6, 0, 6),
+"tilts": PackedFloat32Array(0, -0.347744, 0.351857, 0)
+}
+point_count = 4
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8pe7h"]
+
+[sub_resource type="Sky" id="Sky_4ms3n"]
+sky_material = SubResource("ProceduralSkyMaterial_8pe7h")
+
+[sub_resource type="Environment" id="Environment_q6bxl"]
+background_mode = 2
+sky = SubResource("Sky_4ms3n")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_0mck1")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.999998, 0, -8.74227e-08, 0, 0.999998, 0, 8.74226e-08, 0, -0.999999, 0, 0, 0)
+script = ExtResource("1_lr888")
+
+[node name="Camera3D" type="Camera3D" parent="Path3D/PathFollow3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_q6bxl")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.977556, -0.106949, 0.181512, 0, 0.861567, 0.507644, -0.210677, -0.49625, 0.84223, 0, 0, 0)
